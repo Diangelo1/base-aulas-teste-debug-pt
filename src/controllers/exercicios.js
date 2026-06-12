@@ -4,7 +4,6 @@ class Controller {
 
     Somar(req, res) {
         const { num1, num2 } = req.body
-
         const resultado = Service.Somar(num1, num2)
 
         res.status(200).send({ resultado })
@@ -12,7 +11,6 @@ class Controller {
 
     Subtrair(req, res) {
         const { num1, num2 } = req.body
-
         const resultado = Service.Subtrair(num1, num2)
 
         res.status(200).send({ resultado })
@@ -20,7 +18,6 @@ class Controller {
 
     Multiplicar(req, res) {
         const { num1, num2 } = req.body
-
         const resultado = Service.Multiplicar(num1, num2)
 
         res.status(200).send({ resultado })
@@ -28,7 +25,6 @@ class Controller {
 
     Dividir(req, res) {
         const { num1, num2 } = req.body
-
         const resultado = Service.Dividir(num1, num2)
 
         res.status(200).send({ resultado })
