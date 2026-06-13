@@ -45,6 +45,14 @@ describe("Testes para a função multiplicar", () => {
     })
 })
 
+describe("Testes para a função potenciar", () => {
+
+    it("", () => {
+        const result = Service.Multiplicar(2, 2);
+        expect(result).toBe(4);
+    })
+})
+
 
 
 

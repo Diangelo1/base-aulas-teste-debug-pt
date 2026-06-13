@@ -22,6 +22,14 @@ class Service {
     Dividir(num1, num2) {
         return num1 / num2;
     }
+
+    Potenciar(num1, num2) {
+        return num1 ** num2;
+    }
+
+    Radiciar(num1, num2) {
+        return num1 **(1 / num2);
+    }
 }
 
 export default new Service()
