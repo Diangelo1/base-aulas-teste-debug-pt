@@ -9,57 +9,160 @@ describe("Testes para Função Somar", () => {
         expect(result).toBe(3);
     })
 
+
     it("Deve somar dois numeros negativos -2 e -1, retornar -3", () => {
         const result = Service.Somar(-2, -1);
         expect(result).toBe(-3);
     })
 
-    it("Deve somar dois numeros, um negativo -2 e um positivo 1, retornar -1", () => {
+
+    it("Deve somar numero negativo e positivo -2 e 1, retornar -1", () => {
         const result = Service.Somar(-2, 1);
         expect(result).toBe(-1);
     })
 
-    it("Deve somar dois numeros, um positivo 2 e um negativo -1, retornar 1", () => {
-        const result = Service.Somar(2, -1);
-        expect(result).toBe(1);
-    })
-})
 
+    it("Deve lançar erro quando não informar valores", () => {
 
-describe("Testes parar função sub", () => {
+        expect(() => {
+            Service.Somar()
+        }).toThrow("Informe todos os valores");
 
-    it("Deve subtrair dois numeros positivos 2 e 1, retornar 1", () => {
-        const result = Service.Subtrair(2, 1);
-        expect(result).toBe(1);
     })
 
-})
 
+    it("Deve lançar erro quando informar texto", () => {
 
-describe("Testes para a função Div", () => {
+        expect(() => {
+            Service.Somar("a",2)
+        }).toThrow("Informe somente números");
 
-    it("Deve dividir dois numeros positivos 2 e 2, retornar 1", () => {
-        const result = Service.Dividir(2, 2);
-        expect(result).toBe(1);
     })
 
 })
 
 
-describe("Testes para a função multiplicar", () => {
 
-    it("Deve multiplicar dois numero positivos 2 e 2, retornar 4", () => {
-        const result = Service.Multiplicar(2, 2);
+describe("Testes para função Subtrair", () => {
+
+
+    it("Deve subtrair dois numeros positivos 2 e 1 retornando 1", () => {
+
+        const result = Service.Subtrair(2,1);
+
+        expect(result).toBe(1);
+
+    })
+
+
+    it("Deve subtrair numeros negativos -2 e -1 retornando -1", () => {
+
+        const result = Service.Subtrair(-2,-1);
+
+        expect(result).toBe(-1);
+
+    })
+
+
+    it("Deve lançar erro sem valores", () => {
+
+        expect(()=>{
+
+            Service.Subtrair()
+
+        }).toThrow("Informe todos os valores");
+
+    })
+
+})
+
+
+
+describe("Testes para função Multiplicar", () => {
+
+
+    it("Deve multiplicar 2 e 2 retornando 4", () => {
+
+        const result = Service.Multiplicar(2,2);
+
         expect(result).toBe(4);
+
+    })
+
+
+    it("Deve multiplicar por zero retornando 0", () => {
+
+        const result = Service.Multiplicar(10,0);
+
+        expect(result).toBe(0);
+
+    })
+
+
+    it("Deve lançar erro quando não informar valores", () => {
+
+        expect(()=>{
+
+            Service.Multiplicar()
+
+        }).toThrow("Informe todos os valores");
+
     })
 
 })
 
 
-describe("Testes para a função Potenciar", () => {
+
+describe("Testes para função Dividir", () => {
 
 
-    it("Deve elevar 2 na potência 3 e retornar 8", () => {
+    it("Deve dividir 2 por 2 retornando 1", () => {
+
+        const result = Service.Dividir(2,2);
+
+        expect(result).toBe(1);
+
+    })
+
+
+    it("Deve dividir numero negativo retornando negativo", () => {
+
+        const result = Service.Dividir(-10,2);
+
+        expect(result).toBe(-5);
+
+    })
+
+
+    it("Deve lançar erro divisão por zero", () => {
+
+        expect(()=>{
+
+            Service.Dividir(10,0)
+
+        }).toThrow("Não é permitido divisão por zero");
+
+    })
+
+
+    it("Deve lançar erro sem valores", () => {
+
+        expect(()=>{
+
+            Service.Dividir()
+
+        }).toThrow("Informe todos os valores");
+
+    })
+
+})
+
+
+
+describe("Testes para função Potenciar", () => {
+
+
+    it("Deve calcular 2 elevado a 3 retornando 8", () => {
 
         const result = Service.Potenciar(2,3);
 
@@ -68,7 +171,7 @@ describe("Testes para a função Potenciar", () => {
     })
 
 
-    it("Deve elevar numero negativo -2 na potência 3 e retornar -8", () => {
+    it("Deve calcular potencia negativa -2 elevado a 3 retornando -8", () => {
 
         const result = Service.Potenciar(-2,3);
 
@@ -77,7 +180,7 @@ describe("Testes para a função Potenciar", () => {
     })
 
 
-    it("Deve retornar 1 quando o expoente for zero", () => {
+    it("Deve retornar 1 quando expoente for zero", () => {
 
         const result = Service.Potenciar(10,0);
 
@@ -86,20 +189,29 @@ describe("Testes para a função Potenciar", () => {
     })
 
 
-    it("Deve lançar erro quando não informar valores", () => {
+    it("Deve calcular potencia decimal", () => {
 
-        expect(() => {
+        const result = Service.Potenciar(2.5,2);
 
-            Service.Potenciar(2)
+        expect(result).toBe(6.25);
+
+    })
+
+
+    it("Deve lançar erro sem valores", () => {
+
+        expect(()=>{
+
+            Service.Potenciar()
 
         }).toThrow("Informe todos os valores");
 
     })
 
 
-    it("Deve lançar erro quando enviar texto", () => {
+    it("Deve lançar erro com texto", () => {
 
-        expect(() => {
+        expect(()=>{
 
             Service.Potenciar("a",2)
 
@@ -110,7 +222,8 @@ describe("Testes para a função Potenciar", () => {
 })
 
 
-describe("Testes para a função Radiciar", () => {
+
+describe("Testes para função Radiciar", () => {
 
 
     it("Deve calcular raiz quadrada de 25 retornando 5", () => {
@@ -131,7 +244,16 @@ describe("Testes para a função Radiciar", () => {
     })
 
 
-    it("Deve calcular raiz negativa -8 retornando -2", () => {
+    it("Deve calcular raiz quinta de 32 retornando 2", () => {
+
+        const result = Service.Radiciar(32,5);
+
+        expect(result).toBe(2);
+
+    })
+
+
+    it("Deve retornar raiz negativa -8 raiz cubica", () => {
 
         const result = Service.Radiciar(-8,3);
 
@@ -140,9 +262,9 @@ describe("Testes para a função Radiciar", () => {
     })
 
 
-    it("Deve lançar erro quando índice da raiz for zero", () => {
+    it("Deve lançar erro índice da raiz zero", () => {
 
-        expect(() => {
+        expect(()=>{
 
             Service.Radiciar(25,0)
 
@@ -151,9 +273,9 @@ describe("Testes para a função Radiciar", () => {
     })
 
 
-    it("Deve lançar erro quando não informar valores", () => {
+    it("Deve lançar erro sem valores", () => {
 
-        expect(() => {
+        expect(()=>{
 
             Service.Radiciar()
 
@@ -161,15 +283,17 @@ describe("Testes para a função Radiciar", () => {
 
     })
 
+
+    it("Deve lançar erro com texto", () => {
+
+        expect(()=>{
+
+            Service.Radiciar("a",2)
+
+        }).toThrow("Informe somente números");
+
+    })
+
 })
-
-
-
-
-
-
-
-
-
 
 

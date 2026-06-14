@@ -46,7 +46,7 @@ class Service {
         this.ValidarValores(num1, num2);
 
 
-        if(Number(num2) === 0){
+        if (Number(num2) === 0) {
             throw new Error("Não é permitido divisão por zero");
         }
 
@@ -68,8 +68,15 @@ class Service {
         this.ValidarValores(num1, num2);
 
 
-        if(Number(num2) <= 0){
+        if (Number(num2) <= 0) {
             throw new Error("Índice da raiz inválido");
+        }
+
+
+        if (Number(num1) < 0 && Number(num2) % 2 !== 0) {
+
+            return -((-Number(num1)) ** (1 / Number(num2)));
+
         }
 
 
