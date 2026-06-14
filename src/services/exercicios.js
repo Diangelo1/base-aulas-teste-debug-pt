@@ -73,16 +73,22 @@ class Service {
         }
 
 
-        if (Number(num1) < 0 && Number(num2) % 2 !== 0) {
+        if (Number(num1) < 0) {
 
-            return -((-Number(num1)) ** (1 / Number(num2)));
+            if (Number(num2) % 2 !== 0) {
+
+                const resultado = (-Number(num1)) ** (1 / Number(num2));
+
+                return -resultado;
+
+            }
 
         }
 
 
         return Number(num1) ** (1 / Number(num2));
     }
-
+    
 }
 
 
